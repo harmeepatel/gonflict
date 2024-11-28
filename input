@@ -1,0 +1,10 @@
+CONFLICT (modify/delete): go.mod deleted in main and modified in HEAD.  Version HEAD of go.mod left in tree.
+CONFLICT (modify/delete): go.sum deleted in main and modified in HEAD.  Version HEAD of go.sum left in tree.
+CONFLICT (modify/delete): main.go deleted in main and modified in HEAD.  Version HEAD of main.go left in tree.
+CONFLICT (modify/delete): web/components/init.go deleted in main and modified in HEAD.  Version HEAD of web/components/init.go left in tree.
+CONFLICT (modify/delete): web/layouts/init.go deleted in main and modified in HEAD.  Version HEAD of web/layouts/init.go left in tree.
+CONFLICT (modify/delete): web/pages/blog.templ deleted in main and modified in HEAD.  Version HEAD of web/pages/blog.templ left in tree.
+CONFLICT (modify/delete): web/pages/blogs/test_blog_with_a_long_and_sensible_title_and_extending_it_to_test.templ deleted in main and modified in HEAD.  Version HEAD of web/pages/blogs/test_blog_with_a_long_and_sensible_title_and_extending_it_to_test.templ left in tree.
+CONFLICT (modify/delete): web/pages/blogs/test_blog_with_a_long_and_sensible_title_and_extending_it_to_test_2.templ deleted in main and modified in HEAD.  Version HEAD of web/pages/blogs/test_blog_with_a_long_and_sensible_title_and_extending_it_to_test_2.templ left in tree.
+CONFLICT (modify/delete): web/pages/init.go deleted in main and modified in HEAD.  Version HEAD of web/pages/init.go left in tree.
+Automatic merge failed; fix conflicts and then commit the result.
