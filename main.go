@@ -1,40 +1,30 @@
 package main
 
 import (
-	"bufio"
 	"bytes"
-	"fmt"
-	"io"
 	"log"
 	"os"
+	"os/exec"
 	"strings"
 )
 
 func main() {
-	stat, err := os.Stdin.Stat()
+	cmd := exec.Command("git", "diff", "--name-only", "--diff-filter=U", "--relative")
+    var out bytes.Buffer
+    cmd.Stdout = &out
+
+	err := cmd.Run()
 	if err != nil {
-		log.Fatalln("problem reading os.stdin")
+		log.Fatal(err)
 	}
 
-    // don't work with anything that is not piped
-	if (stat.Mode() & os.ModeCharDevice) != 0 {
-		fmt.Println("bye!")
-		os.Exit(0)
+    fileList := strings.Split(out.String(), "\n")
+
+    cmd = exec.Command("nvim", fileList...)
+    cmd.Stdin = os.Stdin
+    cmd.Stdout = os.Stdout
+	err = cmd.Run()
+	if err != nil {
+		log.Fatal(err)
 	}
-
-	cons, _ := io.ReadAll(os.Stdin)
-    conNewLine := strings.Split(string(cons), "\n")
-    writer := bufio.NewWriter(os.Stdout)
-    var buffer bytes.Buffer
-
-    for idx, line := range conNewLine {
-        if idx == len(conNewLine)-2 {
-            break
-        }
-        file := strings.Split(line[26:], " ")[0]
-        buffer.WriteString(file + " ")
-    }
-
-    writer.WriteString(buffer.String())
-    writer.Flush()
 }

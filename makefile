@@ -1,2 +1,2 @@
 dev:
-	go build && cat input | ./gonflict
+	go build && ./gonflict
